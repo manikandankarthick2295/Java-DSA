@@ -126,14 +126,14 @@ public class StudentOperation {
        return collect;
     }
 
-    public static void findStudentsWhoPass(Student[] student){
-        Arrays.stream(student).filter(stu -> stu.getMark() >= 40)
-                .forEach(student1 -> System.out.println("Student name : "+student1.getName()+" Student name : "+student1.getMark()));
+    public static List<Student> findStudentsWhoPass(Student[] student){
+        return Arrays.stream(student).filter(stu -> stu.getMark() >= 40)
+                .collect(Collectors.toList());
 
     }
 
     public static void findStudentsWhoFail(Student[] student){
-        Arrays.stream(student).filter(stu -> stu.getMark() <= 40)
+        Arrays.stream(student).filter(stu -> stu.getMark() < 40)
                 .forEach(student1 -> System.out.println("Student name : "+student1.getName()+" Student name : "+student1.getMark()));
 
     }
